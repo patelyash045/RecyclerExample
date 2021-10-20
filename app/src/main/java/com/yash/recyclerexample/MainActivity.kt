@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    lateinit var RecyclerView : RecyclerView
+    lateinit var recyclerView : RecyclerView
     lateinit var lyrics : Array<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        RecyclerView = findViewById(R.id.songList)
+        recyclerView = findViewById(R.id.songList)
         val songsObjects : MutableList<Song> = mutableListOf<Song>()
 
         songsObjects.add(Song("Tum Hi ho","Aashiqui 2 Popular Song"))
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val adapter = MyAdapter(songsObjects)
-        RecyclerView.adapter = adapter
+        recyclerView.adapter = adapter
         adapter.setOnItemClickListener(object : MyAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
 
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        RecyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
 
 
